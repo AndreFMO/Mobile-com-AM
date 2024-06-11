@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { View, Text, Pressable, StyleSheet, Alert, TextInput, TouchableOpacity } from 'react-native';
-import { Picker } from '@react-native-picker/picker';
 import * as DocumentPicker from 'expo-document-picker';
 import * as FileSystem from 'expo-file-system';
 import { useNavigation } from '@react-navigation/native';
@@ -428,7 +427,6 @@ function HomeScreen() {
           open={open}
           value={selectedAlgorithm}
           items={[
-            { label: 'Selecione um algoritmo', value: null },
             { label: 'KNN', value: 'knn' },
             { label: 'Algoritmo Genético', value: 'genetic' },
             { label: 'Árvore de Decisão', value: 'decisionTree' },
@@ -441,14 +439,20 @@ function HomeScreen() {
         />
 
         {selectedAlgorithm === 'genetic' && (
-          <TextInput
-            style={styles.input}
-            placeholder="Número de gerações"
-            keyboardType="numeric"
-            value={isNaN(numGenerations) ? '' : numGenerations.toString()} // Verifica se é NaN e limpa o valor
-            onChangeText={text => setNumGenerations(parseInt(text))}
-          />
+          
+          <View style={styles.orangeBorder}>
+            <Text style={styles.title}>Adicione o número de gerações:</Text>
+              <TextInput
+                style={styles.input}
+                placeholder="Digite aqui!"
+                keyboardType="numeric"
+                value={isNaN(numGenerations) ? '' : numGenerations.toString()} // Verifica se é NaN e limpa o valor
+                onChangeText={text => setNumGenerations(parseInt(text))}
+              />
+          </View>
+          
         )}
+        
         
         <Text style={styles.title}>Selecione a base de dados:</Text>
         <TouchableOpacity style={styles.fileButton} onPress={handleFileSelection}>
@@ -491,6 +495,17 @@ const styles = StyleSheet.create({
     borderColor: '#fff',
     borderRadius: 10,
     elevation: 5,
+  },
+  orangeBorder: {
+    width: "100%",
+    borderBottomWidth: 2,
+    borderBottomColor: '#BF8B6E',
+    marginBottom: 30,
+  },
+  input: {
+    height: 30,
+    fontSize: 18,
+    marginBottom: -3,
   },
   fileButton: {
     backgroundColor: "#007BFF",
