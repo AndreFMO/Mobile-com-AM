@@ -5,7 +5,7 @@
 - Node.js
 - npm 
 
-## Para executar o projeto, siga o passo a passo abaixo:
+## Para executar o projeto, siga os passos abaixo:
 
 1. Clone o repositório:
     ```sh
