@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import DecisionTree from './DecisionTree';
-import GeneticTree from './GeneticTree';
+
 
 const ResultScreen = ({ route }) => {
   const { result } = route.params;
@@ -10,9 +10,10 @@ const ResultScreen = ({ route }) => {
     <ScrollView contentContainerStyle={styles.container}>
       <Text style={styles.header}>Resultado</Text>
       <View style={styles.resultContainer}>
-        <Text style={styles.resultItem}>Algoritmo: {result?.algorithm}</Text>
-        {result?.algorithm !== 'GeneticAlgorithm' && (
+        <Text style={styles.resultItem}>Selecionado: {result?.algorithm}</Text>
+        {result?.algorithm !== 'Algoritmo Genetico' && (
           <>
+            <Text style={styles.resultText}> </Text>
             <Text style={styles.resultItem}>Instâncias: {result?.instances}</Text>
             <Text style={styles.resultItem}>Classes: {result?.classes}</Text>
           </>
@@ -31,15 +32,12 @@ const ResultScreen = ({ route }) => {
             <DecisionTree decisionTree={result.decisionTree} accuracy={result.accuracy} />
           </>
         ) : null}
-        {result?.algorithm === 'GeneticAlgorithm' && result?.x !== undefined && result?.y !== undefined && result?.z !== undefined ? (
+        {result?.algorithm === 'Algoritmo Genetico' && result?.x !== undefined && result?.y !== undefined && result?.z !== undefined ? (
           <View style={styles.container}>
             <Text style={styles.resultText}>O melhor indivíduo:</Text>
-            <Text style={styles.resultText}> X = {result.x}</Text>
-            <Text style={styles.resultText}> Y = {result.y}</Text>
-            <Text style={styles.resultText}> Z = {result.z}</Text>
+            <Text style={styles.resultText}> X = {result.x},   Y = {result.y},   Z = {result.z}</Text>
+            <Text style={styles.resultText}> </Text>
             <Text style={styles.resultText}> Fitness = {result.fitness}</Text>
-            <Text style={styles.resultText}> Informações do algoritmo:</Text>
-            <Text style={styles.resultText}> Algoritmo: {result.algorithm}</Text>
           </View>
         ) : null}
       </View>
@@ -66,6 +64,10 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   resultItem: {
+    fontSize: 16,
+    marginBottom: 5,
+  },
+  resultText: {
     fontSize: 16,
     marginBottom: 5,
   },

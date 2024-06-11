@@ -52,18 +52,23 @@ const DecisionTreeNode = ({ node, depth = 0, index = '0' }) => {
 const styles = StyleSheet.create({
   decisionTreeContainer: {
     marginTop: 10,
+    padding: 10,
   },
   decisionTree: {
     borderWidth: 1,
     borderColor: '#ccc',
     borderRadius: 5,
     padding: 10,
+    maxHeight: 400,
   },
   decisionTreeContent: {
     flexGrow: 1,
   },
   treeNode: {
     marginVertical: 5,
+    padding: 5,
+    borderLeftWidth: 1,
+    borderColor: '#ccc',
   },
   treeChild: {
     marginLeft: 20,
@@ -79,6 +84,11 @@ const styles = StyleSheet.create({
   treeLeaf: {
     marginLeft: 20,
     fontStyle: 'italic',
+  },
+  resultItem: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    marginBottom: 10,
   },
 });
 

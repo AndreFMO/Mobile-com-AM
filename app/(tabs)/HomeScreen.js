@@ -324,7 +324,7 @@ function HomeScreen() {
     const bestIndividual = algorithmInstance.getBestIndividual();
     return {
       ...bestIndividual,
-      algorithm: 'GeneticAlgorithm',
+      algorithm: 'Algoritmo Genetico',
     };
   };
 
@@ -505,7 +505,6 @@ const styles = StyleSheet.create({
   input: {
     height: 30,
     fontSize: 18,
-    marginBottom: -3,
   },
   fileButton: {
     backgroundColor: "#007BFF",
