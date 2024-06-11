@@ -5,7 +5,7 @@
 - Node.js
 - npm 
 
-## Para iniciar execute os comandos abaixo:
+## Para executar, siga o passo a passo:
 
 1. Clone o repositório:
     ```sh
@@ -16,10 +16,8 @@
     ```sh
     npm i --force
     ```
-
-## Uso
-
-Para iniciar o projeto, utilize o seguinte comando:
+    
+3. Para iniciar o projeto, utilize o seguinte comando:
 ```sh
 npx expo start -c
  ```
